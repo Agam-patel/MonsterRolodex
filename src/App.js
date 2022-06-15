@@ -2,6 +2,17 @@ import CardList from './components/card-list/card-list.component.jsx'
 import SearchBox from './components/search-box/search-box.component.jsx'
 import "./App.css";
 import { Component } from "react";
+const App=()=>{
+
+    return (
+        <div className="App">
+        <h1 className='app-title'>Monster Rolodex</h1>
+            <SearchBox className="monster-search-box" placeholder="search monsters" onChangeHandler={onSearchChange}></SearchBox>
+            <CardList monsters={filtermonsters} />
+        </div>
+    );
+
+}
 class App extends Component {
     constructor() {
         super();
@@ -41,11 +52,7 @@ class App extends Component {
             return monster.name.toLowerCase().includes(searchField);
         });
         return (
-            <div className="App">
-            <h1 className='app-title'>Monster Rolodex</h1>
-                <SearchBox className="monster-search-box" placeholder="search monsters" onChangeHandler={onSearchChange}></SearchBox>
-                <CardList monsters={filtermonsters} />
-            </div>
+        
         );
     }
 }
